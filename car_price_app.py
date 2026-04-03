@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import os
 
 car_data = pd.read_csv("Car_Price_Data.csv")
-model = pickle.load(open("crawford_price_regressor.pkl", "rb"))
+model = pickle.load(open(os.path.join(os.path.dirname(__file__), "crawford_price_regressor.pkl"), "rb"))
 transformer = pickle.load(open("crawford_transformer.pkl", "rb"))
 
 st.title("Car Price Predictor")
